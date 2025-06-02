@@ -1,0 +1,24 @@
+int const pirpin=5;
+int const ledpin=3;
+int const buzzerpin=8;
+void setup()
+{
+    pinMode(5,INPUT);
+    pinMode(3,OUTPUT);
+    pinMode(8,OUTPUT);
+    Serial.begin(9600);
+}
+void loop(){
+    int motion=digitalRead(A0);
+    if(motion==HIGH){
+        Serial.print("Motion detected!..");
+        digitalWrite(ledpin,HIGH);
+        digitalWrite(buzzerpin,HIGH);
+    }
+    else{
+        Serial.print("No motion!...");
+        digitalWrite(ledpin,LOW);
+        digitalWrite(buzzerpin,LOW);
+    }
+    delay(1000);
+}
